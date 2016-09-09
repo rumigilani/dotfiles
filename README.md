@@ -5,5 +5,6 @@ I'm using:
 i3wm
 i3blocks
 urxvt
+compton
 
 and that's about it.
