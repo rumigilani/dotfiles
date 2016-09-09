@@ -5,24 +5,17 @@ set $mod Mod1
 # is used in the bar {} block below.
 font pango:Cantarell 10
 
-# Hybrid colors (solarized)
-set $black	#002B36
-set $white	#839496
-set $gray	#CCCCCC
-set $darkgray	#666666
-set $green 	#799F26
-set $blue	#4D73AA
-set $purple	#8473A7
-set $red	#B58900
-set $orange	#E59847
-set $cyan	#2AA198
-set $dark	#00252E
+gaps inner 10
+gaps outer 5
+
+for_window [class="^.*"] border pixel 4
+for_window [class="electronbar"] border pixel 0
+new_window pixel 4
 
 #class                  border  backgr. text    indicator
-client.focused			$white  $white  $dark    $dark
-client.unfocused		$dark   $dark   $white   $white
-client.focused_inactive	$dark   $dark   $white   $dark
-client.urgent			$orange $orange $dark    $white
+client.unfocused	#222222 #222222 #FFFFFF #222222
+client.focused_inactive #222222 #222222 #FFFFFF #222222
+client.focused 		#111111 #111111 #FFFFFF #111111
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -88,15 +81,15 @@ bindsym $mod+a focus parent
 
 ## set workspace variables
 set $ws1 "1 "
-set $ws2 "2 "
-set $ws3 "3 "
-set $ws4 "4"
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10 "
+set $ws10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -122,7 +115,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-assign [class="Steam"] $ws3
+assign [class="Steam"] $ws4
 for_window [class="Spotify"] move to workspace $ws10
 
 # reload the configuration file
@@ -130,13 +123,13 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You sure?' -b 'Exit i3' 'i3-msg exit'"
 
 # lock i3 (CHOOSE BETTER KEYBIND) 
 bindsym $mod+Shift+l exec "$HOME/dotfiles/scripts/lock.sh $HOME/Pictures/Icons/lock.png"
 
-# screenshot (FIX THIS)
-bindsym $mod+Shift+s exec "mkdir -p Pictures/Screenshots && scrot -q 100 Pictures/Screenshots/scrot.jpg"
+# screenshot
+bindsym $mod+Shift+s exec "scrot -q 100 ~/Pictures/Screenshots/%Y-%m-%d-%T.png"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -166,27 +159,25 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+bar	{
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
 	strip_workspace_numbers yes
 	colors {
-			statusline	#999999
-			background	$black
-
-        # Colors                border          backgr.         text
-	focused_workspace	$white	 	$white		$black
-        active_workspace	#073642 	#073642 	#696f89
-        inactive_workspace	#073642 	#073642         $white
-        urgent_workspace  	$orange		$orange		$dark
-    }
+		background #000000aa
+		focused_workspace #000000aa #002244aa #ffffffcc
+		inactive_workspace #000000aa #000000aa #ffffffaa
+		urgent_workspace #000000aa #dd000033 #ffffffaa
+		statusline #ffffffaa
+	}
 }
 
 # Start Spotify with i3 on boot
 exec spotify
 
-# Start Compton on boot (FIX THIS)
-# exec compton -f
+# Start Compton on boot
+exec compton -f
 
 # Change the wallpaper as specified
 exec_always feh --bg-scale /home/rumi/Pictures/wallpaper.jpg
