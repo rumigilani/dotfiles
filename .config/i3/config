@@ -8,8 +8,8 @@ font pango:Cantarell 10
 gaps inner 10
 gaps outer 5
 
-for_window [class="^.*"] border pixel 4
-for_window [class="electronbar"] border pixel 0
+for_window [class="^.*"] border pixel 1
+# for_window [class="electronbar"] border pixel 0
 new_window pixel 4
 
 #class                  border  backgr. text    indicator
@@ -26,8 +26,9 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run
+# TODO: rofi calculator and google search ala Launchy
+# start rofi
+bindsym $mod+d exec rofi -show run -lines 5 -width 100 -padding 300 -fullscreen -opacity "85" -font "Cantarell 50" -separator-style "none"
 
 # change focus
 bindsym $mod+h focus left
@@ -41,7 +42,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window (FIX THIS)
+# move focused window (TODO: FIX THIS)
 # bindsym $mod+Shift+j move left
 # bindsym $mod+Shift+k move down
 # bindsym $mod+Shift+l move up
@@ -80,16 +81,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 ## set workspace variables
-set $ws1 "1 "
-set $ws2 "2 "
-set $ws3 "3 "
-set $ws4 "4 "
+set $ws1 "1: term"
+set $ws2 "2: web"
+set $ws3 "3: code"
+set $ws4 "4: games"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10 "
+set $ws9 "9: chat"
+set $ws10 "10: tunes"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -116,6 +117,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="Steam"] $ws4
+assign [class="discord"] $ws9
+# for_window [class="discord"] move to workspace $ws9
 for_window [class="Spotify"] move to workspace $ws10
 
 # reload the configuration file
@@ -125,11 +128,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You sure?' -b 'Exit i3' 'i3-msg exit'"
 
-# lock i3 (CHOOSE BETTER KEYBIND) 
+# lock i3 (CHOOSE BETTER KEYBIND)
 bindsym $mod+Shift+l exec "$HOME/dotfiles/scripts/lock.sh $HOME/Pictures/Icons/lock.png"
 
 # screenshot
-bindsym $mod+Shift+s exec "scrot -q 100 ~/Pictures/Screenshots/%Y-%m-%d-%T.png"
+bindsym Print exec "scrot -q 100 ~/Pictures/Screenshots/%Y-%m-%d-%T.png"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -160,24 +163,30 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-bar	{
-	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-	strip_workspace_numbers yes
-	colors {
-		background #000000aa
-		focused_workspace #000000aa #002244aa #ffffffcc
-		inactive_workspace #000000aa #000000aa #ffffffaa
-		urgent_workspace #000000aa #dd000033 #ffffffaa
-		statusline #ffffffaa
-	}
-}
+# bar	{
+#   tray_output none
+# 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+# 	position top
+# 	strip_workspace_numbers yes
+# 	colors {
+# 		background #000000aa
+# 		focused_workspace #000000aa #002244aa #ffffffcc
+# 		inactive_workspace #000000aa #000000aa #ffffffaa
+# 		urgent_workspace #000000aa #dd000033 #ffffffaa
+# 		statusline #ffffffaa
+# 	}
+# }
+
+#--no-startup-id prevents loading cursor all the time
+# Start Polybar
+exec_always --no-startup-id killall polybar; polybar example
 
 # Start Spotify with i3 on boot
-exec spotify
+exec --no-startup-id spotify
 
 # Start Compton on boot
-exec compton -f
+exec --no-startup-id compton -f
+#  -b --config ~/.config/compton.conf
 
 # Change the wallpaper as specified
-exec_always feh --bg-scale /home/rumi/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale /home/rumi/Pictures/firewatchgreen.jpg
