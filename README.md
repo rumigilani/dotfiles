@@ -10,3 +10,5 @@ urxvt
 compton
 
 and that's about it.
+
+# TODO: decide whether or not to remove . from files and folders in dotfiles dir
