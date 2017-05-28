@@ -12,4 +12,5 @@ zsh w/ oh-my-zsh
 
 and that's about it.
 
-# TODO: decide whether or not to remove . from files and folders in dotfiles dir
+TODO: decide whether or not to remove . from files and folders in dotfiles dir
+TODO: add fonts
