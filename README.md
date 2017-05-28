@@ -8,6 +8,7 @@ i3-gaps
 polybar
 urxvt
 compton
+zsh w/ oh-my-zsh
 
 and that's about it.
 
