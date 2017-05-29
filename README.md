@@ -9,8 +9,12 @@ polybar
 urxvt
 compton
 zsh w/ oh-my-zsh
-
-and that's about it.
+feh
+scrot
+rofi
 
 TODO: decide whether or not to remove . from files and folders in dotfiles dir
+
 TODO: add fonts
+
+TODO: add atom
