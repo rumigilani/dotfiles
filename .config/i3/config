@@ -129,7 +129,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You sure?' -b 'Exit i3' 'i3-msg exit'"
 
 # lock i3 (CHOOSE BETTER KEYBIND)
-bindsym $mod+Shift+l exec "$HOME/dotfiles/scripts/lock.sh $HOME/Pictures/Icons/lock.png"
+bindsym $mod+Shift+l exec "$HOME/dotfiles/scripts/lock.sh $HOME/dotfiles/images/lock-icon.png"
 
 # screenshot
 bindsym Print exec "scrot -q 100 ~/Pictures/Screenshots/%Y-%m-%d-%T.png"
@@ -189,4 +189,4 @@ exec --no-startup-id compton -f
 #  -b --config ~/.config/compton.conf
 
 # Change the wallpaper as specified
-exec_always --no-startup-id feh --bg-scale /home/rumi/Pictures/firewatchgreen.jpg
+exec_always --no-startup-id feh --bg-scale ~/dotfiles/images/firewatchgreen-bg.jpg
