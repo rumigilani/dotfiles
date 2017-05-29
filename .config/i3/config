@@ -128,7 +128,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You sure?' -b 'Exit i3' 'i3-msg exit'"
 
-# lock i3 (CHOOSE BETTER KEYBIND)
+# lock i3 (TODO: CHOOSE BETTER KEYBIND)
 bindsym $mod+Shift+l exec "$HOME/dotfiles/scripts/lock.sh $HOME/dotfiles/images/lock-icon.png"
 
 # screenshot
