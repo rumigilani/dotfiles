@@ -21,10 +21,10 @@ echo "...done"
 # done
 
 # TODO: standardize/optimize this bit, make a backup dotfiles directory
-ln -s ~/dotfiles/.Xresources ~
-ln -s ~/dotfiles/.config/i3/i3blocks.conf ~/.config/i3
-ln -s ~/dotfiles/.config/i3/config ~/.config/i3
-ln -s ~/dotfiles/.config/compton.conf ~/.config
-ln -s ~/dotfiles/.zshrc ~
-ln -s ~/dotfiles/.config/polybar/config ~/.config/polybar
-ln -s ~/dotfiles/.oh-my-zsh ~
+ln -s ~/dotfiles/.Xresources ~/
+# ln -s ~/dotfiles/.config/i3/i3blocks.conf ~/.config/i3
+ln -s ~/dotfiles/.config/i3/config ~/.config/i3/
+ln -s ~/dotfiles/.config/compton.conf ~/.config/
+ln -s ~/dotfiles/.zshrc ~/
+ln -s ~/dotfiles/.config/polybar/config ~/.config/polybar/
+ln -s ~/dotfiles/.oh-my-zsh ~/
