@@ -30,6 +30,9 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+d exec rofi -show run -lines 5 -width 100 -padding 300 -fullscreen -opacity "85" -font "Cantarell 50" -separator-style "none"
 
+# open settings
+bindsym $mod+Shift+S exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
