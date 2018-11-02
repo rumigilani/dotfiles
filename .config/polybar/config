@@ -42,9 +42,12 @@ module-margin-right = 2
 'set fonts
 ;font-0 = fixed:pixelsize=10;1
 font-0 = Cantarell:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome:pixelsize=10;2
+font-1 = unifont:size=8:antialias=false;0
+font-2 = Wuncon Siji:pixelsize=10;1
+;font-3 = Font Awesome 5 Free:pixelsize=10;2
+font-3 = "Font Awesome 5 Free:style=Regular:size=8;2"
+font-4 = "Font Awesome 5 Free:antialias=true:style=Solid:size=8;2"
+font-5 = "Font Awesome 5 Brands:style=Regular:size=8;2"
 
 modules-left = xwindow
 modules-center = bspwm i3
@@ -147,12 +150,12 @@ label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-ws-icon-0 = 1: term;
-ws-icon-1 = 2: web;
-ws-icon-2 = 3: code;
-ws-icon-3 = 4: games;
-ws-icon-4 = 9: chat;
-ws-icon-5 = 10: tunes;
+ws-icon-0 = 1: term; 
+ws-icon-1 = 2: web; 
+ws-icon-2 = 3: code; 
+ws-icon-3 = 4: games; 
+ws-icon-4 = 9: chat; 
+ws-icon-5 = 10: tunes; 
 ws-icon-default = ?
 
 [module/mpd]
@@ -175,7 +178,7 @@ format = <label> <bar>
 label = BL
 
 bar-width = 10
-bar-indicator = |
+bar-indicator = (:
 bar-indicator-foreground = #ff
 bar-indicator-font = 2
 bar-fill = ─
@@ -280,7 +283,7 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator = :)
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
